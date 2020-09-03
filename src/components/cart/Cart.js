@@ -11,10 +11,11 @@ class Cart extends Component {
     const cartSubTotal = this.props.cartSubTotal;
     const cartTax = this.props.cartTax;
     const cartTotal = this.props.cartTotal;
+    const history= this.props.history;
     return (
       <section>
         {cartItems.length > 0 ? (
-          InsideComp(cartItems, cartSubTotal, cartTax, cartTotal)
+          InsideComp(cartItems, cartSubTotal, cartTax, cartTotal,history)
         ) : (
           <EmptyCart />
         )}
@@ -23,7 +24,7 @@ class Cart extends Component {
   }
 }
 
-const InsideComp = (cartItems, cartSubTotal, cartTax, cartTotal) => {
+const InsideComp = (cartItems, cartSubTotal, cartTax, cartTotal,history) => {
   return (
     <React.Fragment>
       <h1 className="text-title text-center mt-5">
@@ -36,6 +37,7 @@ const InsideComp = (cartItems, cartSubTotal, cartTax, cartTotal) => {
         cartSubTotal={cartSubTotal}
         cartTax={cartTax}
         cartTotal={cartTotal}
+        history={history}
       />
     </React.Fragment>
   );

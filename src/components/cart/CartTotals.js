@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import {connect} from "react-redux"
+import PayPalButton from "./PayPalButton"
 
 class CartTotals extends Component {
   render() {
-    const { cartSubTotal, cartTax, cartTotal,clearCart } = this.props;
+    const { cartSubTotal, cartTax, cartTotal,clearCart,history } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -33,6 +34,7 @@ class CartTotals extends Component {
                     total:</span>
                 <strong>$ {cartTotal}</strong>
             </h5>
+            <PayPalButton total={cartTotal} clearCart={clearCart} history={history}/>
           </div>
         </div>
       </div>
